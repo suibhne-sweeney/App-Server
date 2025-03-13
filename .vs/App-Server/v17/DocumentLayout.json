@@ -1,12 +1,71 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\App-Server\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E5CBBBC3-5F0E-4D8E-9BEC-E9197C4DC612}|App-Server\\App-Server.csproj|c:\\users\\suibh\\onedrive\\desktop\\tu dublin\\year_4\\semester_2\\app dev 2\\project\\app-server\\app-server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5CBBBC3-5F0E-4D8E-9BEC-E9197C4DC612}|App-Server\\App-Server.csproj|solutionrelative:app-server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5CBBBC3-5F0E-4D8E-9BEC-E9197C4DC612}|App-Server\\App-Server.csproj|c:\\users\\suibh\\onedrive\\desktop\\tu dublin\\year_4\\semester_2\\app dev 2\\project\\app-server\\app-server\\models\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5CBBBC3-5F0E-4D8E-9BEC-E9197C4DC612}|App-Server\\App-Server.csproj|solutionrelative:app-server\\models\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5CBBBC3-5F0E-4D8E-9BEC-E9197C4DC612}|App-Server\\App-Server.csproj|c:\\users\\suibh\\onedrive\\desktop\\tu dublin\\year_4\\semester_2\\app dev 2\\project\\app-server\\app-server\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{E5CBBBC3-5F0E-4D8E-9BEC-E9197C4DC612}|App-Server\\App-Server.csproj|solutionrelative:app-server\\.env||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\App-Server\\App-Server\\Program.cs",
+              "RelativeDocumentMoniker": "App-Server\\Program.cs",
+              "ToolTip": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\App-Server\\App-Server\\Program.cs",
+              "RelativeToolTip": "App-Server\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T21:53:08.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\App-Server\\App-Server\\Models\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "App-Server\\Models\\WeatherForecast.cs",
+              "ToolTip": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\App-Server\\App-Server\\Models\\WeatherForecast.cs",
+              "RelativeToolTip": "App-Server\\Models\\WeatherForecast.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T21:52:51.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": ".env",
+              "DocumentMoniker": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\App-Server\\App-Server\\.env",
+              "RelativeDocumentMoniker": "App-Server\\.env",
+              "ToolTip": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\App-Server\\App-Server\\.env",
+              "RelativeToolTip": "App-Server\\.env",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-13T21:48:41.42Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
