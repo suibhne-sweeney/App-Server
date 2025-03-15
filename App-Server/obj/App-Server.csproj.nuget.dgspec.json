@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\App-Server\\App-Server\\App-Server.csproj": {}
+    "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\AppRepos\\App-Server\\App-Server\\App-Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\App-Server\\App-Server\\App-Server.csproj": {
+    "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\AppRepos\\App-Server\\App-Server\\App-Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\App-Server\\App-Server\\App-Server.csproj",
+        "projectUniqueName": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\AppRepos\\App-Server\\App-Server\\App-Server.csproj",
         "projectName": "App-Server",
-        "projectPath": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\App-Server\\App-Server\\App-Server.csproj",
+        "projectPath": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\AppRepos\\App-Server\\App-Server\\App-Server.csproj",
         "packagesPath": "C:\\Users\\suibh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\App-Server\\App-Server\\obj\\",
+        "outputPath": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\AppRepos\\App-Server\\App-Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

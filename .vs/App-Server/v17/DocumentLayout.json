@@ -1,18 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\App-Server\\",
+  "WorkspaceRootPath": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\AppRepos\\App-Server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E5CBBBC3-5F0E-4D8E-9BEC-E9197C4DC612}|App-Server\\App-Server.csproj|c:\\users\\suibh\\onedrive\\desktop\\tu dublin\\year_4\\semester_2\\app dev 2\\project\\app-server\\app-server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E5CBBBC3-5F0E-4D8E-9BEC-E9197C4DC612}|App-Server\\App-Server.csproj|solutionrelative:app-server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E5CBBBC3-5F0E-4D8E-9BEC-E9197C4DC612}|App-Server\\App-Server.csproj|c:\\users\\suibh\\onedrive\\desktop\\tu dublin\\year_4\\semester_2\\app dev 2\\project\\app-server\\app-server\\models\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E5CBBBC3-5F0E-4D8E-9BEC-E9197C4DC612}|App-Server\\App-Server.csproj|solutionrelative:app-server\\models\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E5CBBBC3-5F0E-4D8E-9BEC-E9197C4DC612}|App-Server\\App-Server.csproj|c:\\users\\suibh\\onedrive\\desktop\\tu dublin\\year_4\\semester_2\\app dev 2\\project\\app-server\\app-server\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{E5CBBBC3-5F0E-4D8E-9BEC-E9197C4DC612}|App-Server\\App-Server.csproj|c:\\users\\suibh\\onedrive\\desktop\\tu dublin\\year_4\\semester_2\\app dev 2\\project\\apprepos\\app-server\\app-server\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{E5CBBBC3-5F0E-4D8E-9BEC-E9197C4DC612}|App-Server\\App-Server.csproj|solutionrelative:app-server\\.env||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5CBBBC3-5F0E-4D8E-9BEC-E9197C4DC612}|App-Server\\App-Server.csproj|c:\\users\\suibh\\onedrive\\desktop\\tu dublin\\year_4\\semester_2\\app dev 2\\project\\apprepos\\app-server\\app-server\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{E5CBBBC3-5F0E-4D8E-9BEC-E9197C4DC612}|App-Server\\App-Server.csproj|solutionrelative:app-server\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5CBBBC3-5F0E-4D8E-9BEC-E9197C4DC612}|App-Server\\App-Server.csproj|c:\\users\\suibh\\onedrive\\desktop\\tu dublin\\year_4\\semester_2\\app dev 2\\project\\apprepos\\app-server\\app-server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E5CBBBC3-5F0E-4D8E-9BEC-E9197C4DC612}|App-Server\\App-Server.csproj|solutionrelative:app-server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,40 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\App-Server\\App-Server\\Program.cs",
-              "RelativeDocumentMoniker": "App-Server\\Program.cs",
-              "ToolTip": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\App-Server\\App-Server\\Program.cs",
-              "RelativeToolTip": "App-Server\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T21:53:08.691Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "WeatherForecast.cs",
-              "DocumentMoniker": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\App-Server\\App-Server\\Models\\WeatherForecast.cs",
-              "RelativeDocumentMoniker": "App-Server\\Models\\WeatherForecast.cs",
-              "ToolTip": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\App-Server\\App-Server\\Models\\WeatherForecast.cs",
-              "RelativeToolTip": "App-Server\\Models\\WeatherForecast.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T21:52:51.503Z",
+              "Title": ".env",
+              "DocumentMoniker": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\AppRepos\\App-Server\\App-Server\\.env",
+              "RelativeDocumentMoniker": "App-Server\\.env",
+              "ToolTip": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\AppRepos\\App-Server\\App-Server\\.env",
+              "RelativeToolTip": "App-Server\\.env",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-15T16:43:00.888Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": ".env",
-              "DocumentMoniker": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\App-Server\\App-Server\\.env",
-              "RelativeDocumentMoniker": "App-Server\\.env",
-              "ToolTip": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\App-Server\\App-Server\\.env",
-              "RelativeToolTip": "App-Server\\.env",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-13T21:48:41.42Z",
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\AppRepos\\App-Server\\App-Server\\appsettings.json",
+              "RelativeDocumentMoniker": "App-Server\\appsettings.json",
+              "ToolTip": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\AppRepos\\App-Server\\App-Server\\appsettings.json",
+              "RelativeToolTip": "App-Server\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-15T16:41:34.362Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\AppRepos\\App-Server\\App-Server\\.gitignore",
+              "RelativeDocumentMoniker": "App-Server\\.gitignore",
+              "ToolTip": "C:\\Users\\suibh\\OneDrive\\Desktop\\TU Dublin\\Year_4\\Semester_2\\App Dev 2\\Project\\AppRepos\\App-Server\\App-Server\\.gitignore",
+              "RelativeToolTip": "App-Server\\.gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF8SURBVDhPjVNLTgJBEG1lwpoFB3GNK9fieA48hD8iwT/ihwgSDAIHgAGXXsEV18CNzL/LquqZdsYM6kteXqcy3fWqpmpNRBgOhyABBEgpAFVKPIMUcYzUyOU\u002BXM/b2qtU3vkSfRjjZTCAMAw1A2LwzdFoBPP5HNqdzuL27n4juibWI\u002BUshBA1DIkhEx9iEorFotgslQqGYbxxAGFEqt1MxmPWJLbLZdZ\u002Bv89q5PMFPiTR6z2zdaxR0fXA0XTBcVywkb4fwHXjRteecIDNQ7UmExVYAdPcxYaqclN46na5WenMKjtlVnTYwcXlVYaDqImW9beD5N/TeGy32QHXm6hZ03ZgiSQHp2fnWQ4oBmJqWSqwAqZpZjt4aLXAD4J0VqyZsmoubfB8H2r1eoaD6NXZ9HcHO\u002BSA3f4AjifXl8rItOETM8ckB9WTWpYD9RdeZ1PWVWAHWXPQaDb59f/w8LiqHeh1pvGkCaP6qB8yXusoxmuNZ7XmII4O9vGuEF86osuDYRkpYQAAAABJRU5ErkJggg==",
+              "WhenOpened": "2025-03-15T16:40:22.765Z",
               "EditorCaption": ""
             }
           ]
