@@ -6,9 +6,7 @@ C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\Ap
 C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\AppRepos\App-Server\bin\Debug\net8.0\App-Server.runtimeconfig.json
 C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\AppRepos\App-Server\bin\Debug\net8.0\App-Server.dll
 C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\AppRepos\App-Server\bin\Debug\net8.0\App-Server.pdb
-C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\AppRepos\App-Server\bin\Debug\net8.0\DotNetEnv.dll
 C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\AppRepos\App-Server\bin\Debug\net8.0\Microsoft.OpenApi.dll
-C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\AppRepos\App-Server\bin\Debug\net8.0\Sprache.dll
 C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\AppRepos\App-Server\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\AppRepos\App-Server\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\AppRepos\App-Server\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -36,3 +34,11 @@ C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\Ap
 C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\AppRepos\App-Server\obj\Debug\net8.0\App-Server.pdb
 C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\AppRepos\App-Server\obj\Debug\net8.0\App-Server.genruntimeconfig.cache
 C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\AppRepos\App-Server\obj\Debug\net8.0\ref\App-Server.dll
+C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\AppRepos\App-Server\bin\Debug\net8.0\DnsClient.dll
+C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\AppRepos\App-Server\bin\Debug\net8.0\MongoDB.Bson.dll
+C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\AppRepos\App-Server\bin\Debug\net8.0\MongoDB.Driver.dll
+C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\AppRepos\App-Server\bin\Debug\net8.0\SharpCompress.dll
+C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\AppRepos\App-Server\bin\Debug\net8.0\Snappier.dll
+C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\AppRepos\App-Server\bin\Debug\net8.0\ZstdSharp.dll
+C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\AppRepos\App-Server\bin\Debug\net8.0\DotNetEnv.dll
+C:\Users\suibh\OneDrive\Desktop\TU Dublin\Year_4\Semester_2\App Dev 2\Project\AppRepos\App-Server\bin\Debug\net8.0\Sprache.dll
