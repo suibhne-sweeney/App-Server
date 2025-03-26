@@ -33,8 +33,7 @@ namespace App_Server.Controllers
             }
             catch (Exception e)
             {
-                
-                return NotFound(e);
+                return BadRequest(new { error = e.Message });
             }
         }
     }
