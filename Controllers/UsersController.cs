@@ -32,9 +32,8 @@ namespace App_Server.Controllers
                 return Ok(users);
             }
             catch (Exception e)
-            {
-                
-                return NotFound(e);
+            { 
+                return BadRequest(new { error = e.Message });
             }
         }
     }
