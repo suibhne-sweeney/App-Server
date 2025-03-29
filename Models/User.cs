@@ -1,11 +1,12 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization.IdGenerators;
 
 namespace App_Server
 { 
     public class User
     {
-        [BsonId]
+        [BsonId(IdGenerator = typeof(ObjectIdGenerator))]
         public ObjectId? Id { get; set; }
 
         [BsonElement("firstName")]

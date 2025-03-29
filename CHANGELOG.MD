@@ -1,3 +1,8 @@
+## [1.3.0] - (2025-03-29)
+- created the registration controller
+- change AuthController
+- change Program
+
 ## [1.2.0] - (2025-03-26)
 - set up Authentication
 - add JWTService

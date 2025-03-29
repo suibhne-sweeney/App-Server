@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Net.Http.Headers;
 
 namespace App_Server
@@ -22,10 +24,22 @@ namespace App_Server
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddScoped<JwtService>();
+            builder.Services.Configure<FormOptions>(o =>
+            {
+                o.ValueLengthLimit = int.MaxValue;
+                o.MultipartBodyLengthLimit = int.MaxValue;
+            });
+            // Configure the HTTP request pipeline.
             var app = builder.Build();
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "Public")),
+                RequestPath = "/Public"
+            });
+
             app.UseMiddleware<AuthMiddleware>();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();

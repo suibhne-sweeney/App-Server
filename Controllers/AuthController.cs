@@ -1,9 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
-using BCrypt.Net;
 using Microsoft.AspNetCore.Identity.Data;
-using MongoDB.Bson;
-
 
 namespace App_Server.Controllers
 {
@@ -27,20 +24,42 @@ namespace App_Server.Controllers
             userCollection = database.GetCollection<User>(collectionName);
         }
         
-        // [HttpPost("register")]
-        // public async Task<IActionResult> Register([FromBody] User user)
-        // {
-        //     try
-        //     {
-        //         await userCollection.InsertOneAsync(user);
-        //         return Ok(user);
-        //     }
-        //     catch (Exception e)
-        //     {
+        [HttpPost("register")]
+        [DisableRequestSizeLimit]
+        [RequestFormLimits(MultipartBodyLengthLimit = int.MaxValue, ValueLengthLimit = int.MaxValue)]
+        
+        // Using FromForm and not FromBody because it allows for file upload
+        public async Task<IActionResult> Register([FromForm] User user)
+        {
+            try
+            {
+                // THIS CODE SEGMENT IS FOR FILE UPLOADING
+                // it will upload to the ./Public folder 
+                // the ./Public folder is where we will upload files. 
+                // copy and paste this at the top of your function 
+                // it works no edits needed
+                string root = Directory.GetCurrentDirectory();
                 
-        //         return NotFound(e);
-        //     }
-        // }
+                var file = Request.Form.Files.FirstOrDefault();
+                if(file != null)
+                {
+                    string pathToSave = Path.Combine(root, "Public");
+                    if (!Directory.Exists(pathToSave)) Directory.CreateDirectory(pathToSave);
+
+                    string fullPath = Path.Combine(pathToSave, file.FileName);
+                    using FileStream stream = new FileStream(fullPath, FileMode.Create);
+                    await file.CopyToAsync(stream);
+                }
+                
+                // This is just me adding the user to the database nothing to do with the code above this
+                await userCollection.InsertOneAsync(user);
+                return Ok(user);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { error = e.Message }); 
+            }
+        }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
@@ -71,7 +90,6 @@ namespace App_Server.Controllers
             }
             catch (Exception e)
             {
-                
                 return BadRequest(new { error = e.Message }); 
             }
         }
