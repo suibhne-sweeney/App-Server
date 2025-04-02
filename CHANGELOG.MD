@@ -1,3 +1,7 @@
+## [1.3.1] - (2025-04-02)
+- completed the registration controller
+- change AuthController
+
 ## [1.3.0] - (2025-03-29)
 - created the registration controller
 - change AuthController

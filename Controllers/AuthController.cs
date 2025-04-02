@@ -52,6 +52,12 @@ namespace App_Server.Controllers
                 }
                 
                 // This is just me adding the user to the database nothing to do with the code above this
+                var passwrodHash = PasswordHasher.HashPassword(user.Password!);
+                user.Password = passwrodHash;
+                user.CreatedAt = DateTime.Now;
+                user.UpdatedAt = DateTime.Now;
+                user.Friends = [];
+
                 await userCollection.InsertOneAsync(user);
                 return Ok(user);
             }
