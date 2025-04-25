@@ -6,8 +6,10 @@ namespace App_Server
 { 
     public class User
     {
+        [BsonElement("_id")]
         [BsonId(IdGenerator = typeof(ObjectIdGenerator))]
-        public ObjectId? Id { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string? Id { get; set; }
 
         [BsonElement("firstName")]
         public string? FirstName { get; set; }

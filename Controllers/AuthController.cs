@@ -83,7 +83,7 @@ namespace App_Server.Controllers
 
                 DotNetEnv.Env.Load();
                 var secret = Environment.GetEnvironmentVariable("JWT_SECRET") ?? "";
-                var userId = user.Id.ToString() ?? "";
+                var userId = user.Id?.ToString() ?? "";
 
                 var token = _jwtService.GenerateToken(userId, secret);
 

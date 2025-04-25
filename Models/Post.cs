@@ -1,12 +1,15 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization.IdGenerators;
 
 namespace App_Server
 {
     public class Post
     {
-        [BsonId]
-        public ObjectId Id {get; set;}
+        [BsonElement("_id")]
+        [BsonId(IdGenerator = typeof(ObjectIdGenerator))]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string? Id {get; set;}
 
         [BsonElement("userId")]
         [BsonRepresentation(BsonType.ObjectId)]
