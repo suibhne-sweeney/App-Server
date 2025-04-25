@@ -1,3 +1,6 @@
+## [1.3.2] - (2025-04-25)
+- Added getUser
+
 ## [1.3.1] - (2025-04-02)
 - completed the registration controller
 - change AuthController
