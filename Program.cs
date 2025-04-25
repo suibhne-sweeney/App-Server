@@ -51,6 +51,8 @@ namespace App_Server
             // Configure the HTTP request pipeline.
             var app = builder.Build();
 
+            app.UseCors("CORS");
+
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "Public")),
@@ -64,8 +66,6 @@ namespace App_Server
             }
 
             app.UseMiddleware<AuthMiddleware>();
-
-            app.UseCors("CORS");
 
             app.UseHttpsRedirection();
 

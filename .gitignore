@@ -1,2 +1,8 @@
 .env
 .fake
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.cache
