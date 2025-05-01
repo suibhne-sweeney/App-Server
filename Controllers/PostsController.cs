@@ -112,8 +112,8 @@ namespace App_Server.Controllers
 
         public class CreatePostForm
         {
-            public string userId { get; set; }
-            public string description { get; set; }
+            public string? userId { get; set; }
+            public string? description { get; set; }
             public IFormFile? picture { get; set; }
         }
 
@@ -123,9 +123,9 @@ namespace App_Server.Controllers
             try
             {
                 string? picturePath = null;
-                if (CPF.picture != null)
+                if (CPF?.picture != null)
                 {
-                    var publicDir = Path.Combine(Directory.GetCurrentDirectory(), "Public/", CPF.userId);
+                    var publicDir = Path.Combine(Directory.GetCurrentDirectory(), "Public/");
                     if (!Directory.Exists(publicDir))
                         Directory.CreateDirectory(publicDir);
 
@@ -140,7 +140,7 @@ namespace App_Server.Controllers
                 var userCollection = new MongoClient(Environment.GetEnvironmentVariable("MONGO_URI"))
                     .GetDatabase("test")
                     .GetCollection<User>("users");
-                var author = await userCollection.Find(u => u.Id.ToString() == CPF.userId).FirstOrDefaultAsync();
+                var author = await userCollection.Find(u => u.Id.ToString() == (CPF.userId ?? "") ).FirstOrDefaultAsync();
                 if (author == null)
                 {
                     return BadRequest(new { error = "Author not found" }); // If this happens...      
@@ -191,7 +191,7 @@ namespace App_Server.Controllers
                 string? picturePath = existingPost.PicturePath;
                 if (form.picture != null)
                 {
-                    var publicDir = Path.Combine(Directory.GetCurrentDirectory(), "Public", existingPost.UserId);
+                    var publicDir = Path.Combine(Directory.GetCurrentDirectory(), "Public", existingPost.UserId ?? "");
                     if (!Directory.Exists(publicDir))
                         Directory.CreateDirectory(publicDir);
 

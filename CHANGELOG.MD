@@ -1,3 +1,13 @@
+## [1.4.0] - (2025-04-25)
+- add createPost
+- add getUesrPosts
+- add likePost
+- add deletePost
+- add getUser
+- add getUserFriends
+- add addRemoveFriend
+- editProfile
+
 ## [1.3.2] - (2025-04-25)
 - Added getUser
 - Added getUser/Friends

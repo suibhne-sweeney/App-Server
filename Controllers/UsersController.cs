@@ -65,13 +65,24 @@ namespace App_Server.Controllers
                 {
                     return NotFound(new { error = "User not found" });
                 }
-                return Ok(user.Friends);
+
+                var friendIds = user.Friends ?? new List<string>();
+                var friends = await userCollection.Find(u => friendIds.Contains(u.Id.ToString() ?? ""))
+                    .Project(u => new
+                    {
+                        id = u.Id.ToString(),
+                        firstName = u.FirstName,
+                        lastName = u.LastName,
+                        picturePath = u.PicturePath
+                    }).ToListAsync();
+
+                return Ok(friends);
             }
             catch (Exception e)
             { 
                 return BadRequest(new { error = e.Message });
             }        
-    }
+        }
 
         [HttpPatch("user/{id}/friends/{friendId}")]
         public async Task<IActionResult> FriendManager(string id, string friendId)
@@ -124,7 +135,7 @@ namespace App_Server.Controllers
                 var updatedProfileFields = new List<UpdateDefinition<User>>();
                 if (EPF.PicturePath != null) {
                     // Thought it would be good idea if we made a folder for each user in /public/<user_id>
-                    var directory = Path.Combine("Public/" + id.ToString());
+                    var directory = Path.Combine("Public/");
                     if (!Directory.Exists(directory))
                     {
                         Directory.CreateDirectory(directory);
