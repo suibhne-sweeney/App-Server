@@ -73,28 +73,55 @@ namespace App_Server.Controllers
             }        
     }
 
-        [HttpPatch("user/{id}/friends/{friendId}")]
-        public async Task<IActionResult> FriendManager(string id, string friendId)
+        public class EditableProfileFields
+        {
+            public IFormFile? PicturePath { get; set; }
+            public string? Location { get; set; }
+            public string? Occupation { get; set; }
+        }
+
+        [HttpPatch("getUser/{id}/editProfile")]
+        public async Task<IActionResult> EditUserProfile(string id, [FromForm] EditableProfileFields EPF)
         {
             try
             {
                 var user = await userCollection.Find(u => u.Id.ToString() == id).FirstOrDefaultAsync();
-                var friend = await userCollection.Find(u => u.Id.ToString() == friendId).FirstOrDefaultAsync();
-
-                if (user == null || friend == null)
+                if (user == null)
                 {
-                    return NotFound(new { error = "User or friend not found" });
+                    return NotFound(new { error = "User not found" });
                 }
 
-            var update = user.Friends.Contains(friendId)
-                ? Builders<User>.Update.Pull(u => u.Friends, friendId)
-                : Builders<User>.Update.Push(u => u.Friends, friendId);
+                var updatedProfileFields = new List<UpdateDefinition<User>>();
+                if (EPF.PicturePath != null) {
+                    // Thought it would be good idea if we made a folder for each user in /public/<user_id>
+                    var directory = Path.Combine("Public/" + id.ToString());
+                    if (!Directory.Exists(directory))
+                    {
+                        Directory.CreateDirectory(directory);
+                    }
+                    
+                    var filePath = Path.Combine(directory, EPF.PicturePath.FileName);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await EPF.PicturePath.CopyToAsync(stream);
+                    }
+                    updatedProfileFields.Add(Builders<User>.Update.Set(u => u.PicturePath, filePath));
+                }
+                if (!string.IsNullOrEmpty(EPF.Location))
+                {
+                    updatedProfileFields.Add(Builders<User>.Update.Set(u => u.Location, EPF.Location));
+                }
+                if (!string.IsNullOrEmpty(EPF.Occupation))
+                {
+                    updatedProfileFields.Add(Builders<User>.Update.Set(u => u.Occupation, EPF.Occupation));
+                }
 
-            await userCollection.UpdateOneAsync(u => u.Id.ToString() == id, update);
-            var updatedUser = await userCollection.Find(u => u.Id.ToString() == id).FirstOrDefaultAsync();
-            var updatedUserFriends = await userCollection.Find(u => updatedUser.Friends.Contains(u.Id.ToString())).ToListAsync();
-                
-            return Ok(updatedUserFriends);
+                if (updatedProfileFields.Count > 0) {
+                    var update = Builders<User>.Update.Combine(updatedProfileFields);
+                    await userCollection.UpdateOneAsync(u => u.Id.ToString() == id, update);
+                }
+                var updatedUser = await userCollection.Find(u => u.Id.ToString() == id).FirstOrDefaultAsync();
+                return Ok(updatedUser);
             }
             catch (Exception e)
             { 
