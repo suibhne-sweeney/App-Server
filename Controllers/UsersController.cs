@@ -54,5 +54,23 @@ namespace App_Server.Controllers
                 return BadRequest(new { error = e.Message });
             }
         }
+
+        [HttpGet("getUser/{id}/friends")]
+        public async Task<IActionResult> GetUserFriends(string id)
+        {
+            try
+            {
+                var user = await userCollection.Find(u => u.Id.ToString() == id).FirstOrDefaultAsync();
+                if (user == null)
+                {
+                    return NotFound(new { error = "User not found" });
+                }
+                return Ok(user.Friends);
+            }
+            catch (Exception e)
+            { 
+                return BadRequest(new { error = e.Message });
+            }        
+    }
     }
 }
