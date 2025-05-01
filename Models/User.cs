@@ -9,6 +9,9 @@ namespace App_Server
         [BsonId(IdGenerator = typeof(ObjectIdGenerator))]
         public ObjectId? Id { get; set; }
 
+        [BsonIgnore]
+        public string IdString => Id.ToString() ?? "";
+
         [BsonElement("firstName")]
         public string? FirstName { get; set; }
 
