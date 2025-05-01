@@ -105,5 +105,32 @@ namespace App_Server.Controllers
                 return BadRequest(new { error = e.Message });
             }
         }
+
+        [HttpPatch("user/{id}/removeFriend/{friendId}")]
+        public async Task<IActionResult> RemoveFriend(string id, string friendId)
+        {
+            try
+            {
+                var user = await userCollection.Find(u => u.Id.ToString() == id).FirstOrDefaultAsync();
+                if (user == null)
+                {
+                    return NotFound(new { error = "User not found" });
+                }
+
+                if (!user.Friends.Contains(friendId))
+                {
+                    return BadRequest(new { error = "Not friends" });
+                }
+
+                user.Friends.Remove(friendId);
+                await userCollection.ReplaceOneAsync(u => u.Id.ToString() == id, user);
+                
+                return Ok(user);
+            }
+            catch (Exception e)
+            { 
+                return BadRequest(new { error = e.Message });
+            }
+        }
     }
 }
