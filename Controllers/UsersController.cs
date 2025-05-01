@@ -75,18 +75,14 @@ namespace App_Server.Controllers
 
         public class EditableProfileFields
         {
-            public string? PicturePath { get; set; }
+            public IFormFile? PicturePath { get; set; }
             public string? Location { get; set; }
             public string? Occupation { get; set; }
         }
 
         [HttpPatch("getUser/{id}/editProfile")]
-        public async Task<IActionResult> EditUserProfile(string id, [FromBody] EditableProfileFields EPF) 
+        public async Task<IActionResult> EditUserProfile(string id, [FromForm] EditableProfileFields EPF)
         {
-            if (string.IsNullOrEmpty(EPF.PicturePath) || string.IsNullOrEmpty(EPF.Location) || string.IsNullOrEmpty(EPF.Occupation))
-            {
-                return BadRequest(new { error = "Invalid input" });
-            } 
             try
             {
                 var user = await userCollection.Find(u => u.Id.ToString() == id).FirstOrDefaultAsync();
@@ -95,13 +91,36 @@ namespace App_Server.Controllers
                     return NotFound(new { error = "User not found" });
                 }
 
-                var update = Builders<User>.Update
-                    .Set(u => u.PicturePath, EPF.PicturePath)
-                    .Set(u => u.Location, EPF.Location)
-                    .Set(u => u.Occupation, EPF.Occupation);
+                var updatedProfileFields = new List<UpdateDefinition<User>>();
+                if (EPF.PicturePath != null) {
+                    var directory = Path.Combine("wwwroot/profile-pics");
+                    if (!Directory.Exists(directory))
+                    {
+                        Directory.CreateDirectory(directory);
+                    }
+                    
+                    var filePath = Path.Combine("wwwroot/profile-pics", EPF.PicturePath.FileName);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await EPF.PicturePath.CopyToAsync(stream);
+                    }
+                    updatedProfileFields.Add(Builders<User>.Update.Set(u => u.PicturePath, filePath));
+                }
+                if (!string.IsNullOrEmpty(EPF.Location))
+                {
+                    updatedProfileFields.Add(Builders<User>.Update.Set(u => u.Location, EPF.Location));
+                }
+                if (!string.IsNullOrEmpty(EPF.Occupation))
+                {
+                    updatedProfileFields.Add(Builders<User>.Update.Set(u => u.Occupation, EPF.Occupation));
+                }
 
-                await userCollection.UpdateOneAsync(u => u.Id.ToString() == id, update);
-                return Ok(new { message = "Profile updated successfully" });
+                if (updatedProfileFields.Count > 0) {
+                    var update = Builders<User>.Update.Combine(updatedProfileFields);
+                    await userCollection.UpdateOneAsync(u => u.Id.ToString() == id, update);
+                }
+                var updatedUser = await userCollection.Find(u => u.Id.ToString() == id).FirstOrDefaultAsync();
+                return Ok(new { message = "Profile updated successfully", updatedUser = updatedUser });
             }
             catch (Exception e)
             { 
