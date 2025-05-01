@@ -53,6 +53,12 @@ namespace App_Server
 
             app.UseCors("CORS");
 
+            var publicDir = Path.Combine(Directory.GetCurrentDirectory(), "Public");
+            if (!Directory.Exists(publicDir))
+            {
+                Directory.CreateDirectory(publicDir);
+            }
+
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "Public")),
