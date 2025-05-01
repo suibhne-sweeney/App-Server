@@ -72,5 +72,41 @@ namespace App_Server.Controllers
                 return BadRequest(new { error = e.Message });
             }        
     }
+
+        public class EditableProfileFields
+        {
+            public string? PicturePath { get; set; }
+            public string? Location { get; set; }
+            public string? Occupation { get; set; }
+        }
+
+        [HttpPatch("getUser/{id}/editProfile")]
+        public async Task<IActionResult> EditUserProfile(string id, [FromBody] EditableProfileFields EPF) 
+        {
+            if (string.IsNullOrEmpty(EPF.PicturePath) || string.IsNullOrEmpty(EPF.Location) || string.IsNullOrEmpty(EPF.Occupation))
+            {
+                return BadRequest(new { error = "Invalid input" });
+            } 
+            try
+            {
+                var user = await userCollection.Find(u => u.Id.ToString() == id).FirstOrDefaultAsync();
+                if (user == null)
+                {
+                    return NotFound(new { error = "User not found" });
+                }
+
+                var update = Builders<User>.Update
+                    .Set(u => u.PicturePath, EPF.PicturePath)
+                    .Set(u => u.Location, EPF.Location)
+                    .Set(u => u.Occupation, EPF.Occupation);
+
+                await userCollection.UpdateOneAsync(u => u.Id.ToString() == id, update);
+                return Ok(new { message = "Profile updated successfully" });
+            }
+            catch (Exception e)
+            { 
+                return BadRequest(new { error = e.Message });
+            }
+        }
     }
 }
