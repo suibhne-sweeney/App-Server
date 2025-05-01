@@ -86,22 +86,22 @@ namespace App_Server.Controllers
                     return NotFound(new { error = "User or friend not found" });
                 }
 
-            var update = user.Friends.Contains(friendId)
-                ? Builders<User>.Update.Pull(u => u.Friends, friendId)
-                : Builders<User>.Update.Push(u => u.Friends, friendId);
+                var update = (user.Friends ?? []).Contains(friendId)
+                    ? Builders<User>.Update.Pull(u => u.Friends, friendId)
+                    : Builders<User>.Update.Push(u => u.Friends, friendId);
 
-            await userCollection.UpdateOneAsync(u => u.Id.ToString() == id, update);
-            var updatedUser = await userCollection.Find(u => u.Id.ToString() == id).FirstOrDefaultAsync();
-            var updatedUserFriends = await userCollection.Find(u => updatedUser.Friends.Contains(u.Id.ToString())).ToListAsync();
+                await userCollection.UpdateOneAsync(u => u.Id.ToString() == id, update);
+                var updatedUser = await userCollection.Find(u => u.Id.ToString() == id).FirstOrDefaultAsync();
+                var updatedUserFriends = await userCollection.Find(u => (updatedUser.Friends ?? new List<string>()).Contains(u.Id.ToString() ?? "")).ToListAsync();
                 
-            return Ok(updatedUserFriends);
+                return Ok(updatedUserFriends);
             }
             catch (Exception e)
             { 
                 return BadRequest(new { error = e.Message });
             }
         }
-    }        
+    
 
         public class EditableProfileFields
         {
