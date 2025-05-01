@@ -72,5 +72,38 @@ namespace App_Server.Controllers
                 return BadRequest(new { error = e.Message });
             }        
     }
+
+        [HttpPatch("user/{id}/addFriend/{friendId}")]
+        public async Task<IActionResult> AddFriend(string id, string friendId)
+        {
+            try
+            {
+                var user = await userCollection.Find(u => u.Id.ToString() == id).FirstOrDefaultAsync();
+                if (user == null)
+                {
+                    return NotFound(new { error = "User not found" });
+                }
+
+                var friend = await userCollection.Find(u => u.Id.ToString() == friendId).FirstOrDefaultAsync();
+                if (friend == null)
+                {
+                    return NotFound(new { error = "Friend not found" });
+                }
+
+                if (user.Friends.Contains(friendId))
+                {
+                    return BadRequest(new { error = "Already friends" });
+                }
+
+                user.Friends.Add(friendId);
+                await userCollection.ReplaceOneAsync(u => u.Id.ToString() == id, user);
+                
+                return Ok(user);
+            }
+            catch (Exception e)
+            { 
+                return BadRequest(new { error = e.Message });
+            }
+        }
     }
 }
