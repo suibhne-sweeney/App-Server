@@ -52,6 +52,12 @@ namespace App_Server
             var app = builder.Build();
 
             app.UseCors("CORS");
+            
+            var publicDir = Path.Combine(Directory.GetCurrentDirectory(), "Public");
+            if (!Directory.Exists(publicDir))
+            {
+                Directory.CreateDirectory(publicDir);
+            }
 
             app.UseStaticFiles(new StaticFileOptions
             {
