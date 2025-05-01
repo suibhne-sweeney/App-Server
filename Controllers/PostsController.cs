@@ -84,6 +84,27 @@ namespace App_Server.Controllers
             }
         }
 
-        
+        [HttpPost("{post_id}/delete")]
+        public async Task<IActionResult> DeletePost(string post_id)
+        {
+            try
+            {
+                var result = await postCollection.DeleteOneAsync(p => p.Id == new ObjectId(post_id));
+                if (result.DeletedCount == 0)
+                {
+                    return NotFound(new { error = "Post not found" });
+                }
+
+                var all_posts = await postCollection.Find(new BsonDocument()).ToListAsync();
+                return Ok(all_posts);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { error = e.Message });
+            }
+        }
+
+
+
     }
 }
