@@ -93,7 +93,7 @@ namespace App_Server.Controllers
                 {
                     return BadRequest(new { error = "Invalid post ID" });
                 }
-                
+
                 var result = await postCollection.DeleteOneAsync(p => p.Id == new ObjectId(post_id));
                 if (result.DeletedCount == 0)
                 {
@@ -162,6 +162,53 @@ namespace App_Server.Controllers
                 };
 
                 await postCollection.InsertOneAsync(post);
+
+                var allPosts = await postCollection.Find(new BsonDocument()).ToListAsync();
+                return Ok(allPosts);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { error = e.Message });
+            }
+        }
+
+        [HttpPatch("{post_id}/update")]
+        public async Task<IActionResult> UpdatePost(string post_id, [FromForm] CreatePostForm form)
+        {
+            try
+            {
+                if (!ObjectId.TryParse(post_id, out var objectId))
+                {
+                    return BadRequest(new { error = "Invalid post ID" });
+                }
+
+                var existingPost = await postCollection.Find(p => p.Id == objectId).FirstOrDefaultAsync();
+                if (existingPost == null)
+                {
+                    return NotFound(new { error = "Post not found" });
+                }
+
+                string? picturePath = existingPost.PicturePath;
+                if (form.picture != null)
+                {
+                    var publicDir = Path.Combine(Directory.GetCurrentDirectory(), "Public", existingPost.UserId);
+                    if (!Directory.Exists(publicDir))
+                        Directory.CreateDirectory(publicDir);
+
+                    picturePath = form.picture.FileName;
+                    var fullPath = Path.Combine(publicDir, form.picture.FileName);
+                    using (var stream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        await form.picture.CopyToAsync(stream);
+                    }
+                }
+
+                var updateDef = Builders<Post>.Update
+                    .Set(p => p.Description, form.description)
+                    .Set(p => p.PicturePath, picturePath)
+                    .Set(p => p.UpdatedAt, DateTime.UtcNow);
+
+                await postCollection.UpdateOneAsync(p => p.Id == objectId, updateDef);
 
                 var allPosts = await postCollection.Find(new BsonDocument()).ToListAsync();
                 return Ok(allPosts);
