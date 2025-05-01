@@ -93,13 +93,14 @@ namespace App_Server.Controllers
 
                 var updatedProfileFields = new List<UpdateDefinition<User>>();
                 if (EPF.PicturePath != null) {
-                    var directory = Path.Combine("wwwroot/profile-pics");
+                    // Thought it would be good idea if we made a folder for each user in /public/<user_id>
+                    var directory = Path.Combine("Public/" + id.ToString());
                     if (!Directory.Exists(directory))
                     {
                         Directory.CreateDirectory(directory);
                     }
                     
-                    var filePath = Path.Combine("wwwroot/profile-pics", EPF.PicturePath.FileName);
+                    var filePath = Path.Combine(directory, EPF.PicturePath.FileName);
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {
                         await EPF.PicturePath.CopyToAsync(stream);
@@ -120,7 +121,7 @@ namespace App_Server.Controllers
                     await userCollection.UpdateOneAsync(u => u.Id.ToString() == id, update);
                 }
                 var updatedUser = await userCollection.Find(u => u.Id.ToString() == id).FirstOrDefaultAsync();
-                return Ok(new { message = "Profile updated successfully", updatedUser = updatedUser });
+                return Ok(updatedUser);
             }
             catch (Exception e)
             { 
