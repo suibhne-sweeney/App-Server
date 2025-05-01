@@ -1,8 +1,9 @@
 .env
 .fake
-bin/
+bin
 obj/
 .vs/
 *.user
 *.suo
 *.cache
+Public
