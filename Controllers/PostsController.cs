@@ -89,6 +89,11 @@ namespace App_Server.Controllers
         {
             try
             {
+                if (!ObjectId.TryParse(post_id, out var objectId))
+                {
+                    return BadRequest(new { error = "Invalid post ID" });
+                }
+                
                 var result = await postCollection.DeleteOneAsync(p => p.Id == new ObjectId(post_id));
                 if (result.DeletedCount == 0)
                 {
@@ -105,6 +110,66 @@ namespace App_Server.Controllers
         }
 
 
+        public class CreatePostForm
+        {
+            public string userId { get; set; }
+            public string description { get; set; }
+            public IFormFile? picture { get; set; }
+        }
 
+        [HttpPost("create")]
+        public async Task<IActionResult> CreatePost([FromForm] CreatePostForm? CPF)
+        {
+            try
+            {
+                string? picturePath = null;
+                if (CPF.picture != null)
+                {
+                    var publicDir = Path.Combine(Directory.GetCurrentDirectory(), "Public/", CPF.userId);
+                    if (!Directory.Exists(publicDir))
+                        Directory.CreateDirectory(publicDir);
+
+                    picturePath = CPF.picture.FileName;
+                    var fullPath = Path.Combine(publicDir, CPF.picture.FileName);
+                    using (var stream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        await CPF.picture.CopyToAsync(stream);
+                    }
+                }
+
+                var userCollection = new MongoClient(Environment.GetEnvironmentVariable("MONGO_URI"))
+                    .GetDatabase("test")
+                    .GetCollection<User>("users");
+                var author = await userCollection.Find(u => u.Id.ToString() == CPF.userId).FirstOrDefaultAsync();
+                if (author == null)
+                {
+                    return BadRequest(new { error = "Author not found" }); // If this happens...      
+                }
+
+                var post = new Post
+                {
+                    UserId = CPF.userId,
+                    FirstName = author.FirstName,
+                    LastName = author.LastName,
+                    Location = author.Location,
+                    Description = CPF.description,
+                    PicturePath = picturePath,
+                    UserPicturePath = author.PicturePath,
+                    Likes = new Dictionary<string, bool>(),
+                    Comments = new List<string>(),
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
+                };
+
+                await postCollection.InsertOneAsync(post);
+
+                var allPosts = await postCollection.Find(new BsonDocument()).ToListAsync();
+                return Ok(allPosts);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { error = e.Message });
+            }
+        }
     }
 }
