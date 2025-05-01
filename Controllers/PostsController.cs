@@ -36,5 +36,23 @@ namespace App_Server.Controllers
                 return BadRequest(new { error = e.Message });
             }
         }
+
+        [HttpGet("getUserPosts/{id}")] 
+        public async Task<IActionResult> GetUserPosts(string id)
+        {
+            try
+            {
+                var posts = await postCollection.Find(p => p.UserId.ToString() == id).ToListAsync();
+                if (posts == null || posts.Count == 0)
+                {
+                    return NotFound(new { error = "No posts found for this user" });
+                }
+                return Ok(posts);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { error = e.Message });
+            }
+        }
     }
 }
